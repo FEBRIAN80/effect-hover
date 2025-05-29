@@ -1,0 +1,201 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 50px 20px;
+  background-color: #111;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+video.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+h1 {
+  font-size: 36px;
+  margin-bottom: 30px;
+  color: #525252;
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  max-width: 800px;
+  width: 100%;
+}
+.button {
+  width: 100%;
+  padding: 20px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 1. Soft Scale */
+.effect-1 {
+  background-color: #89b0ae;
+  color: white;
+}
+.effect-1:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 30px rgba(137, 176, 174, 0.6);
+}
+
+/* 2. Gradient Fade */
+.effect-2 {
+  background: linear-gradient(45deg, #dceef2, #a7c4bc);
+  color: #2e4e4e;
+}
+.effect-2:hover {
+  background: linear-gradient(45deg, #a7c4bc, #dceef2);
+  box-shadow: 0 0 15px rgba(255,255,255,0.2);
+}
+
+/* 3. Neumorphism */
+.effect-3 {
+  background: #e0e0e0;
+  color: #333;
+  box-shadow: inset 4px 4px 8px #bebebe, inset -4px -4px 8px #ffffff;
+}
+.effect-3:hover {
+  box-shadow: 8px 8px 16px #bebebe, -8px -8px 16px #ffffff;
+}
+
+/* 4. Water Ripple */
+.effect-4 {
+  background: #dfeeea;
+  color: #0c3c3c;
+  position: relative;
+  overflow: hidden;
+}
+.effect-4::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+}
+.effect-4:hover::after {
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  background: rgba(69, 162, 102, 0.6);
+  animation: ripple 1.2s ease-out forwards;
+}
+@keyframes ripple {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.7;
+    box-shadow: 0 0 15px rgba(69, 162, 102, 0.4);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(10);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(20);
+    opacity: 0;
+  }
+}
+
+/* 5. Floating Leaf */
+.effect-5 {
+  background: #cddfc3;
+  color: #344;
+}
+.effect-5:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(205, 223, 195, 0.4);
+}
+.effect-5::after {
+  content: "🍃";
+  position: absolute;
+  opacity: 0;
+  transition: all 0.6s;
+}
+.effect-5:hover::after {
+  opacity: 1;
+  transform: translateY(-20px) rotate(20deg);
+}
+
+/* 6. Zen Sand Flow */
+.effect-6 {
+  background: #f8ede3;
+  color: #a7beae;
+  border: 1px solid #dfd8ca;
+}
+.effect-6:hover {
+  background: linear-gradient(90deg, #f8ede3 50%, #dfd8ca 100%);
+  background-size: 200% 100%;
+  background-position: right;
+  transition: background-position 1s ease;
+}
+
+/* 7. Breathing Light */
+.effect-7 {
+  background: #6d8b74;
+  color: #fff;
+}
+.effect-7:hover {
+  animation: breathe 2s infinite;
+  box-shadow: 8px 8px 16px #bebebe, -8px -8px 16px #ffffff;
+}
+@keyframes breathe {
+  0%, 100% { box-shadow: 0 0 10px rgba(255, 255, 255, 0.715); }
+  50% { box-shadow: 0 0 30px rgba(255, 255, 255, 0.758); }
+}
+
+/* 8. Glowing Border */
+.effect-8 {
+  background: #cfe1d8;
+  color: #233d3d;
+  border: 2px solid transparent;
+}
+.effect-8:hover {
+  border: 2px solid #6d8b74;
+  box-shadow: 0 0 15px #a7beae;
+}
+
+/* 9. Glass Morphism */
+.effect-9 {
+  background: rgba(255, 255, 255, 0.15);
+  color: #000000;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.3);
+}
+.effect-9:hover {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 6px 25px rgba(255,255,255,0.3);
+}
+
+/* 10. 3D Flip */
+.effect-10 {
+  background: #a7c4bc;
+  color: #fff;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+.effect-10:hover {
+  transform: rotateY(180deg);
+  background: #5a7d7a;
+}
